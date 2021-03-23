@@ -23,6 +23,6 @@
 ---
 
 ### Arduino and Raspberry Pi integration ###
->Arduino UNO busy flag: A0 pin
+>Arduino UNO busy flag: A5 pin
 >* LOW: Still processing the previous order
 >* HIGH: Ready to take the next order
