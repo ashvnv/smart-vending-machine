@@ -60,11 +60,9 @@ void setup() {
   
   pinMode(irsens, INPUT_PULLUP); //IR Sensor
   
-  pinMode(product1Switch, INPUT_PULLUP);
-  attachInterrupt(digitalPinToInterrupt(product1Switch), Product1, FALLING); //goto Product1() during interrupt
-  
-  pinMode(product2Switch, INPUT_PULLUP);
-  attachInterrupt(digitalPinToInterrupt(product2Switch), Product2, FALLING); //goto Product2() during interrupt
+  pinMode(product1Switch, INPUT_PULLUP); //switch 1 interrupt pin
+  pinMode(product2Switch, INPUT_PULLUP); //switch 2 interrupt pin
+
 
 //========================
   lcd.begin(16, 2); //16x2 lcd selected
@@ -77,7 +75,7 @@ void setup() {
 
 void loop() {
    welcome(); //call the lcd welcome function
-   interrupts(); //enable all interrupts
+   enableInterrupts(); //enable switch 1 and 2 interrupts
    analogWrite(busystatus, 255); //free indication @@@ for Rasp pi
 
    while (analogRead(confirmbutton) > 600); //wait till user selects the product
@@ -87,7 +85,7 @@ void loop() {
        
    } else {
           
-          noInterrupts(); //disable all interrupts, enabled at the start of loop()
+          disableInterrupts(); //disable all interrupts, enabled at the start of loop()
           analogWrite(busystatus, 0); //busy indication @@@ for Rasp pi
 
 
@@ -169,6 +167,19 @@ void lcdSecondRow(String msg) {
 
 
 //---------------------------Interrupt functions for selecting product count------------------------
+
+void enableInterrupts() {//enable interrupt pins
+  attachInterrupt(digitalPinToInterrupt(product1Switch), Product1, FALLING); //goto Product1() during interrupt
+  attachInterrupt(digitalPinToInterrupt(product2Switch), Product2, FALLING); //goto Product2() during interrupt
+  
+}
+
+void disableInterrupts() {//disable interrupt pins
+  detachInterrupt(digitalPinToInterrupt(product1Switch)); 
+  detachInterrupt(digitalPinToInterrupt(product2Switch));
+  
+}
+
 
 void Product1() {
     delayMicroseconds(1000); //software debounce
