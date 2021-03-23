@@ -9,7 +9,7 @@
 * D6 <= Product 2 Motor
 ---
 * D7 <= LCD RS
-* D8 <= LCD E
+* D8 <= LCD EN
 * D9 <= LCD D4
 * D10 <= LCD D5
 * D11 <= LCD D6
