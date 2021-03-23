@@ -23,5 +23,5 @@ Creating Arduino Hex file on Arduino IDE
 * Navigate to that folder from proteus and import the hex file
 
 * In order to navigate to the hex folder, make sure hidden files are visible in Windows Explorer
-* Roughly hex files are creates by the IDE in this folder C:\Users\<username>\AppData\Local\Temp\<your_arduino_build_name>
+* Roughly hex files are creates by the IDE in this folder ***C:\Users\<username>\AppData\Local\Temp\<your_arduino_build_name>***
 > eg C:\Users\Ashwin\AppData\Local\Temp\arduino_build_269746
