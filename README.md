@@ -9,14 +9,14 @@
 - After confirming the order, Raspberry Pi sends the information to Arduino UNO. Arduino executes it's predefined functions which moves the selected products to the product collect window of the vending machine.
 
 ### Vending machine model ###
-For now a small model of vending machine will be used to simulate the working of the project. There will only be two products in the vending machine. The products will be placed on a spiral (spring) which will be rotated by a motor. Arduino will be controlling this motor's rotation. An IR sensor will be used to count how many products moved into the *product collect window* and according Arduino stops the motor when all the required number of product is successfully dispatched.\
+For now a small model of vending machine will be used to simulate the working of the project. There will only be two products in the vending machine. The products will be placed on a spiral (spring) which will be rotated by a motor. Arduino will be controlling this motor's rotation. An IR sensor will be used to count how many products moved into the *product collect window*. Arduino stops the motor when all the required number of product is successfully dispatched.\
 Initially the model will be tested without Raspberry Pi.\
 There will be 3 switches:
 * Switch 1 <= Selecting Product 1
 * Switch 2 <= Selecting Product 2
 * Switch 3 <= Confirm the order
 
-Each time Switch 1 or 2 is pressed, the quantity of that product increments by 1. Everything is displayed on a LCD. Switch 3 is used to confirm the order.\
+Each time Switch 1 or 2 is pressed, the quantity of that product increments by 1. Everything is displayed on a LCD. Switch 3 is used to confirm the order.
 > Later on Raspberry Pi will replace these switches
 
 
