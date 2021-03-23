@@ -1,9 +1,9 @@
 ## Arduino UNO pins used
 ---
-* D2 <= Product 1 Interrupt Switch (Pulled-Up)
-* D3 <= Product 2 Interrupt Switch (Pulled-Up)
+* D2 <= Product 1 Interrupt Switch (Internally Pulled-Up)
+* D3 <= Product 2 Interrupt Switch (Internally Pulled-Up)
 ---
-* D4 <= IR Sensor 
+* D4 <= IR Sensor (Internally Pulled-Up)
 ---
 * D5 <= Product 1 Motor
 * D6 <= Product 2 Motor
@@ -15,14 +15,14 @@
 * D11 <= LCD D6
 * D12 <= LCD D7
 ---
-* A0 <= Order Confirm Switch
+* A0 <= Order Confirm Switch (External Pull-Up)
 * A5 <= Busy Status
 ---
 ## Functions ##
 * void setup()
 > sets the input and output pins of arduino. LCD 16x2 lcd.begin called in this function
 * void loop()
-> Loop function continuously checks the *order confirm button* state. If the button is pressed (State becomes low), the conditional statement checks how many quantity of Product 1 and 2 consumer wants. If those registers are both 0, program goes back to the start of the loop() where it checks for the *order confirm button* state again. If the registers are not 0, loop function turns on the motor and waits till the required quantity of the chosen product reaches the *product collect window*. IR sensor is used to detect how many specified products passed and according decrements the count registers. Motor is ON till the count register becomes 0. This operation is done individually for Product 1 and Product 2, starting with Product 1. In this function Interrupts are disabled since vending machine is not ready for next order. A5 pin is made LOW here. Once the processing is done (all the products were dispatched), interrupts are enabled and A5 is made high stating that vending machine is ready for the next command.
+> Loop function continuously checks the *order confirm button* state. If the button is pressed (State becomes low), the conditional statement checks how many quantity of Product 1 and 2 consumer wants. If those registers are both 0, program goes back to the start of the loop() where it checks for the *order confirm button* state again. If the registers are not 0, loop function turns ON the motor and waits till the required quantity of the chosen product reaches the *product collect window*. IR sensor is used to detect how many specified products passed and according decrements the count registers. Motor is ON till the count register becomes 0. This operation is done individually for Product 1 and Product 2, starting with Product 1. In this function Interrupts are disabled since vending machine is not ready for next order. A5 pin is made LOW here. Once the processing is done (all the products are dispatched), interrupts are enabled and A5 is made high stating that vending machine is ready for the next command.
 ---
 * void welcome()
 > Display Welcome! message on LCD when the vending machine is ready to take orders. Welcome message can be set in this function. Message size can is 16x2 characters
