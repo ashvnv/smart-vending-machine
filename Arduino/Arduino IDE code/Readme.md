@@ -1,4 +1,4 @@
-### Arduino UNO pins used
+## Arduino UNO pins used
 ---
 * D2 <= Product 1 Interrupt Switch (Pulled-Up)
 * D3 <= Product 2 Interrupt Switch (Pulled-Up)
@@ -18,7 +18,7 @@
 * A0 <= Order Confirm Switch
 * A5 <= Busy Status
 ---
-### Functions ###
+## Functions ##
 * void setup()
 > sets the input and output pins of arduino. LCD 16x2 lcd.begin called in this function
 * void loop()
@@ -41,7 +41,7 @@
 * void Product2()
 >Called when Product 2 Switch is pressed. Increments the count in Product2 register. Count indicates how many nos of the product consumer wants. Used later inside loop() while processing the order. Also updates the LCD screen with the quantity of product.
 ---
-### How switch bouncing is tackled ###
+## How switch bouncing is tackled ##
 In order to tackle switch bouncing, a delay code is added while checking the state of the buttons. 
 > bounce_err: while(digitalRead(irsens) == HIGH); //detect the product falling into the tray and decriment count by 1\
               delay(100); //100ms software debounce\
