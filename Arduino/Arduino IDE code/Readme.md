@@ -47,7 +47,7 @@ In order to tackle switch bouncing, a delay code is added while checking the sta
               delay(100); //100ms software debounce\
               if ((digitalRead(irsens)) == HIGH) {goto bounce_err;} //switch bounce, repeat\ 
 
-irsens is the pin where IR sensor is connected. goto is used for jumping the program to the previous stage if the Arduino misread the pin state in while();
+irsens is the pin where IR sensor is connected. goto is used for jumping the program to the previous stage if the Arduino misread the pin state in while();\
 Inside ISR, delay() function cannot be called. So instead we are using delayMicroseconds() for generating small delay.
 > delayMicroseconds(1000); //software debounce\
   if (digitalRead(product2Switch) == LOW)
