@@ -10,7 +10,7 @@
 
 ### Vending machine model ###
 For now a small model of vending machine will be used to simulate the working of the project. There will only be two products in the vending machine. The products will be placed on a spiral (spring) which will be rotated by a motor. Arduino will be controlling this motor's rotation. An IR sensor will be used to count how many products moved into the *product collect window*. Arduino stops the motor when all the required number of products are dispatched successfully.\
-Initially the model will be tested without Raspberry Pi.\
+Initially the model will be tested without Raspberry Pi\
 There will be 3 switches:
 * Switch 1 <= Selecting Product 1
 * Switch 2 <= Selecting Product 2
@@ -19,8 +19,13 @@ There will be 3 switches:
 Each time Switch 1 or 2 is pressed, the quantity of that product increments by 1. Everything is displayed on a LCD. Switch 3 is used to confirm the order.
 > Later on Raspberry Pi will replace these switches
 
+### Switch logic ###
+> All the pinouts are mentioned in the Arduino code and the Readme file inside the Arduino folder of this repository
+- Switch 1 and 2 is connected to pin 2 and 3 respectively for interrupting the Arduino. Switches are pulled_high internally by Arduino. Pressing the switch will make the respective Arduino pin LOW. ***Interrupt is initialized during the falling edge of the pulse.***
+- Switch 3 is pulled_high externally using a 10k resistor. Pressing the switch makes the respective Arduino pin \(A0\) LOW. Switch 3 does not have interrupt function. Arduino keeps polling this switch logic inside the *void loop()*.
+- IR Sensor OUT pin is connnected to Arduino D4 pin. IR Sensor gives HIGH o/p when no object is placed in front of it and LOW when an object is detected. Arduino keeps polling this switch for controlling the motor rotation inside *void loop()*
 
-### Directory Structure ###
+### Repository directory structure ###
 > The functions of this project is divided between Arduino and Raspberry Pi and the directories are made accordingly. 
 ---
 * Arduino
@@ -35,6 +40,6 @@ Each time Switch 1 or 2 is pressed, the quantity of that product increments by 1
 ---
 
 ### Arduino and Raspberry Pi integration ###
->Arduino UNO busy flag: A5 pin
->* LOW: Still processing the previous order
->* HIGH: Ready to take the next order
+Arduino UNO busy flag: A5 pin
+* LOW: Still processing the previous order
+* HIGH: Ready to take the next order
