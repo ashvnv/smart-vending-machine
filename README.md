@@ -8,6 +8,9 @@
 - Raspberry Pi provides voice assistance, so the order can be made completely using voice. Face recognition helps in providing personalized voice assistance. The assistant will suggest orders to the person based on their order history.
 - After confirming the order, Raspberry Pi sends the information to Arduino UNO. Arduino executes it's predefined functions which moves the selected products to the product collect window of the vending machine.
 
+### Block Diagram
+![BD](https://raw.githubusercontent.com/ashvnv/smart-vending-machine/main/temp/BD2.png)
+
 ### Vending machine model ###
 For now a small model of vending machine will be used to simulate the working of the project. There will only be two products in the vending machine. The products will be placed on a spiral (spring) which will be rotated by a motor. Arduino will be controlling this motor's rotation. An IR sensor will be used to count how many products moved into the *product collect window*. Arduino stops the motor when all the required number of products are dispatched successfully.\
 Initially the model will be tested without Raspberry Pi\
