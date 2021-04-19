@@ -52,7 +52,7 @@
 
 ### Python function called to send commands to Arduino:
 > def SwitchToggle(pin, tglcount)
-##### The function takes two parameters <pin number> and <tglcount>. Both are integers values. Pin Number is the GPIO pin number the not the actual Raspberry Pi board pin number although this can be changed in the setup section of the Python Script as given below:
+##### The function takes two parameters _pin number_ and _tglcount_. Both are integers values. Pin Number is the GPIO pin number the not the actual Raspberry Pi board pin number although this can be changed in the setup section of the Python Script as given below:
 > GPIO.setmode(GPIO.BCM)  //_Use GPIO number instead of actual board pin number_
 ##### tglcount is how many times the pin should be made ___LOW-HIGH___
 ---
