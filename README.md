@@ -39,6 +39,7 @@ Each time Switch 1 or 2 is pressed, the quantity of that product increments by 1
      * Arduino Proteus Library <- ***Arduino simulation library files for proteus***
 ---
 * Raspberry Pi
+    * speech_recog.py <- ***Voice Assistant python script***
 
 ---
 
