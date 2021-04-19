@@ -1,5 +1,5 @@
  /*
- * Mini Project FCRIT SEM 4
+ * github.com/ashvnv/smart-vending-machine
  * 
  * A0: Confirm Button
  * A5: -
