@@ -113,7 +113,7 @@ def switch_numlst(arg):
 
 
 
-#-------------------------------Send order to Arduino via toggling pins------------------------------
+#-------------------------------Send order to Arduino by toggling pins------------------------------
 def SwitchToggle(pin, tglcount):
     while i in range(tglcount):
         
