@@ -1,6 +1,6 @@
 # Smart Vending Machine [Under development]
 >Cautious! This project is still under development. Directories and files of this repo may change constantly.
-### Microcontrollers used:
+### Boards used:
 * Raspberry Pi for voice assistance and face recognition
 * Arduino UNO for managing vending machine control functions required to move the product to the *product collect window* of the machine
 
