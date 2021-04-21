@@ -17,7 +17,7 @@
 ---
 
 ## Caution!
-#### The Raspberry Pi Python script was tested on a laptop running Linux Mint 20.1 (based on Ubuntu 20.04 LTS). Due to covid-19 lockdown and lack of resources getting a Raspberry Pi was not possible. Before executing the script on the laptop, many program lines had to be commented-out as they require a Raspberry Pi to work. The commented lines script is available in this repository as of now. For testing the Python script on Raspberry Pi these comments can be removed and python script should work as expected but there is no guarantee about the same.
+#### The Raspberry Pi Python script was tested on a laptop running Linux Mint 20.1 (based on Ubuntu 20.04 LTS). Due to covid-19 lockdown and lack of resources, getting a Raspberry Pi was not possible. Before executing the script on the laptop, many program lines had to be commented-out as they require a Raspberry Pi to work. The commented lines script is available in this repository as of now. For testing the Python script on Raspberry Pi these comments can be removed and python script should work as expected but there is no guarantee about the same.
 ---
 ### For Debian based distros (including Raspbian OS) prequisite packages to be installed before making the voice assistant python script work:
 * sudo pip3 install espeak
