@@ -35,13 +35,10 @@ I ran into issues while using espeak directly from the apt repository. Sentences
 * Download the espeak package from sourceforge (I downloaded 1.48.04)
 * Open the Makefile inside src folder and comment (adding #) _AUDIO = portaudio_, uncomment (removing #) _AUDIO = pulseaudio_. Add _.asoundrc_ file in your home directory (~) and add the following code:
 
-pcm.pulse { type pulse }
-
-ctl.pulse { type pulse }
-
-pcm.!default { type pulse }
-
-ctl.!default { type pulse }
+> pcm.pulse { type pulse } <br/>
+> ctl.pulse { type pulse }  <br/>
+> pcm.!default { type pulse }  <br/>
+> ctl.!default { type pulse }  <br/>
 
 Now to build espeak, install these packages: <br/>
 sudo apt-get update <br/>
@@ -56,7 +53,8 @@ sudo apt-get install  libportaudio-dev <br/>
 sudo apt-get install speech-dispatcher <br/>
 
 Open the terminal from src folder and type:
-> make <br/>
+> make
+
 > sudo make-install
 
 Try running espeak from terminal:
