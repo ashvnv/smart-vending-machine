@@ -58,7 +58,8 @@ Open the terminal from src folder and type:
 > sudo make-install
 
 Try running espeak from terminal:
-> espeak "Hello World"
+> espeak "Hello World" <br/>
+
 You should hear "Hello World"
 
 ### Why we had to go through all these steps?
