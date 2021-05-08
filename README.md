@@ -39,7 +39,10 @@ Each time Switch 1 or 2 is pressed, the quantity of that product increments by 1
      * Arduino Proteus Library <- ***Arduino simulation library files for proteus***
 ---
 * Raspberry Pi
-    * speech_recog.py <- ***Voice Assistant python script***
+  * piycodes
+    * main.py <- ***main script calls other scripts during execution***
+    * tts.py <- ***Text-To-Speech function defined***
+    * speech_recog.py <- ***Speech recognition script***
 
 ---
 
@@ -47,3 +50,8 @@ Each time Switch 1 or 2 is pressed, the quantity of that product increments by 1
 Arduino UNO busy flag: A5 pin
 * LOW: Still processing the previous order
 * HIGH: Ready to take the next order
+
+Inside main.py
+> def SwitchToggle(pin, tglcount)
+
+The function takes two parameters pin number and tglcount. Both are integers values. Pin Number is the GPIO pin number the not the actual Raspberry Pi board pin number.
