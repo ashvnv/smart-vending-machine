@@ -55,7 +55,3 @@ Inside main.py
 > def SwitchToggle(pin, tglcount)
 
 The function takes two parameters pin number and tglcount. Both are integers values. Pin Number is the GPIO pin number the not the actual Raspberry Pi board pin number.
-
----
-### Like my work and want to support me? Buy me a coffee!😊
-<a href="https://www.buymeacoffee.com/ashvnv" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
