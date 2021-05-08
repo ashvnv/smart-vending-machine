@@ -1,5 +1,6 @@
-## Caution!
-#### Raspberry Pi python script is incomplete.
+#### Face recognition is not added yet
+
+#### Code tested on Raspberry Pi 2 B 1GB RAM
 
 ##### ___What works for now___:
 * Script can convert voice message to text using Google Speech Recognition
@@ -8,21 +9,61 @@
 * Assistant's voice greeting messages are already added and can be modified as required.
 * Once the order is given confirmation is asked by the assistant whether to accept the order
 * In case of invalid voice inputs, the script gives an 'invalid input' voice feedback and loops back again to re-record the voice command from the user
+* Send Product count signal and confirm signal to Arduino (By toggling button state)
+* Check Arduino busy status line before accepting the next order
 
 ##### ___What improvements can be made:___
 * Regex can be used to improve decoding the product _name_ and _count_ from the text obtained after conversion of voice using speech recognition
+* Text to speech synthesis can be improved using MBROLA
 ##### ___Yet to implement:___
 * Calling Face recognition Python script before giving the greeting voice message
-* Arduino busy-status pin check after giving the product _counts_ and order _confirm_ commands to Arduino
+
+---
+#### engines used:
+##### Speech-To-Text > SpeechRecognition https://pypi.org/project/SpeechRecognition/
+##### Text-To-Speech > espeak http://espeak.sourceforge.net/
 ---
 
-## Caution!
-#### The Raspberry Pi Python script was tested on a laptop running Linux Mint 20.1 (based on Ubuntu 20.04 LTS). Due to covid-19 lockdown and lack of resources, getting a Raspberry Pi was not possible. Before executing the script on the laptop, many program lines had to be commented-out as they require a Raspberry Pi to work. The commented lines script is available in this repository as of now. For testing the Python script on Raspberry Pi these comments can be removed and python script should work as expected but there is no guarantee about the same.
----
-### For Debian based distros (including Raspbian OS) prequisite packages to be installed before making the voice assistant python script work:
-* sudo apt-get install espeak
+### Pre-requisite packages installation on Raspberry Pi
 * sudo pip3 install SpeechRecognition
 * sudo pip3 install PyAudio
+* sudo apt-get install flac
+
+I ran into issues while using espeak directly from the apt repository. Sentences were not completely spoken and had to run the same espeak command twice to get the proper speech output. I recommend installing espeak from the repository using _sudo apt-get install espeak_ and check if espeak is working properly. I got around this issue by building espeak from source. Even though sometimes words were not spoken, I got a better result.
+
+### Building espeak from source:
+* Download the espeak package from sourceforge (I downloaded 1.48.04)
+* Open the Makefile inside src folder and comment (adding #) _AUDIO = portaudio_, uncomment (removing #) _AUDIO = pulseaudio_. Add _.asoundrc_ file in your home directory (~) and add the following code:
+
+> pcm.pulse { type pulse } <br/>
+> ctl.pulse { type pulse }  <br/>
+> pcm.!default { type pulse }  <br/>
+> ctl.!default { type pulse }  <br/>
+
+Now to build espeak, install these packages: <br/>
+sudo apt-get update <br/>
+sudo apt-get install make autoconf automake libtool pkg-config <br/>
+sudo apt-get install  portaudio19-dev <br/>
+sudo apt-get install  libasound2-dev <br/>
+sudo apt-get install  libportaudio2 <br/>
+sudo apt-get install  libportaudiocpp0 <br/>
+sudo apt-get install libwxgtk2.8-dev <br/>
+sudo apt-get install  libpulse-dev <br/>
+sudo apt-get install  libportaudio-dev <br/>
+sudo apt-get install speech-dispatcher <br/>
+
+Open the terminal from src folder and type:
+> make
+
+> sudo make-install
+
+Try running espeak from terminal:
+> espeak "Hello World"
+You should hear "Hello World"
+
+### Why we had to go through all these steps?
+Somehow pulseaudio works better in raspbian while using espeak. To know more about this you may refer: https://www.emacspeak.org/VCCS-archive//2010/msg00068.html and building espeak from souce you may refer: https://learn.linksprite.com/pcduino/how-to-compile-espeak-text-to-speech-engine-from-source-on-pcduino3/
+
 ---
 ### Raspberry Pi GPIO pins used for interfacing with Arduino: ###
 * GPIO_PIN 4 (Board pin 7) ___Check Arduino busy status___
@@ -30,29 +71,19 @@
 * GPIO_PIN 27 (Board pin 13) ___Product 1 signal to Arduino___
 * GPIO_PIN 22 (Board pin 15) ___Product 2 signal to Arduino___
 ---
-## Voice Assistant script
-> The script is bifurcated using '-' comment lines for easier understanding and debugging. Some codes in the script is commented-out as the script has not been tested yet on Raspberry Pi.
-#### Libraries imported:
-* import speech_recognition as sr //___called from the installed SpeechRecognition package___
-* import serial //___for Raspberry Pi___
-* import RPi.GPIO as GPIO //___for Raspberry Pi___
-* import os, time //__for calling delay()___
 
+### I went with modular coding approach here. There are 4 python scripts:
+* main.py
+* tts.py
+* speech_recog,py
+* face_recog.py <- yet to implement
 
-### Script starts execution from the bottom-most section inside a while(1) loop
-##### Flow of main section:
-* Execute face recognition script
-* welcome message is executed using _espeak_ once face recognition script returns the recognized person's details
-* calls ListenAudio() (_records the user's voice commands and returns the audio file_) and DecodeAudio() (_audio file is converted to text using google voice api function_) for getting voice to text message
-* decodes the received text message to get product 1 and 2 counts
-* takes confirmation message from the user for confirming the order
-* call SwitchToggle() to send the order commands to Arduino
-* giving thankyou voice message after Arduino completes processing the order (script continuously poles Arduino busystatus pin to know when Arduino finishes processing the order)
-* _repeat_ the loop
+This approach makes debugging and modifying the code easier.
 
-### Python function called to send commands to Arduino:
-> def SwitchToggle(pin, tglcount)
-##### The function takes two parameters _pin number_ and _tglcount_. Both are integers values. Pin Number is the GPIO pin number the not the actual Raspberry Pi board pin number although this can be changed in the setup section of the Python Script as given below:
-> GPIO.setmode(GPIO.BCM)  //_Use GPIO number instead of actual board pin number_
-##### tglcount is how many times the pin should be made ___LOW-HIGH___
----
+### Script functions:
+* main.py <- As the name suggest, this is the main script which is run in raspberry pi.
+* tts.py <- For executing espeak on terminal. Script calling tts.py defined function sends a string argument and this string argument is passed on to the terminal along with the predefined espeak configurations (like speech rate, volume, voice etc which can be edited in this script file).
+* speech_recog.py <- Here the voice is recorded and voice to speech recognition is done.
+* face_recog.py <- Yet to implement. Face recognition code resides. Returns the recognized person's identity.
+
+### For more detailed information about these script files, refer the Readme inside ___piycodes___ folder
