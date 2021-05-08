@@ -50,6 +50,6 @@ This script defines various functions:
 
 > NameFind() <- Accepts a string argument and a string array, string array is searched in the string argument and if any one of the array string is found in string argument, it returns that found string, else returns 0
 
-> CountFind()() <- Accepts a string argument. This function defines a string array of number from 1 to 10 in words. This string array is searched in the passed string argument and if any one of the array string is found in string argument, it returns that found string, else returns 0. This function also searches for numbers using isdigit() and returns it if found else return 0
+> CountFind() <- Accepts a string argument. This function defines a string array of number from 1 to 10 in words. This string array is searched in the passed string argument and if any one of the array string is found in string argument, it returns that found string, else returns 0. This function also searches for numbers using isdigit() and returns it if found else return 0
 
 > switch_numlst() <- This function is called by CountFind() to convert number in words to number in digits
