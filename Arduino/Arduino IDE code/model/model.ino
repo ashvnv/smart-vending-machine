@@ -2,7 +2,7 @@
  * github.com/ashvnv/smart-vending-machine
  * 
  * A0: Confirm Button
- * A5: -
+ * A5: - Busy status
  * Pin 2: Product 1 Interrupt Switch
  * Pin 3: Product 2 Interrupt Switch
  * Pin 4: IR Sensor (for counting) 
@@ -18,7 +18,7 @@
 
 //-------------------------PINS--------------- ----------------------------------
 int confirmbutton = A0; // product selection confirm button
-int busystatus = A5; // redundant, indicates whether vending machine is ready to take orders [for raspberry pi]
+int busystatus = A5; // indicates whether vending machine is ready to take orders [for raspberry pi]
 
 
 
