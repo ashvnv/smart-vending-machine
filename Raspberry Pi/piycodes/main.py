@@ -166,6 +166,7 @@ while(1):
                 while GPIO.input(BUSYSTAT_BTN) == GPIO.LOW:
                     #check busy status here
                     time.sleep(0.5)
+                iftttlog.logdata('main.py',"Processed") #log the data
                 tts.TTS_call("Your order is prepared. Please collect it from the collection window. See you soon.")
 
 
