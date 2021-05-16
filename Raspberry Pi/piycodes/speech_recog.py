@@ -36,7 +36,7 @@ import iftttlog
 
 #-----------------------------------------------Voice recognition---------------------------------------
 def ListenAudio():
-    with sr.Microphone(0) as source:  #using device_index: default
+    with sr.Microphone(2) as source:  #using device_index: default
                speechrecog_inst.adjust_for_ambient_noise(source) # suppress noice for better voice recognition {argument takes numerical values in seconds)
                
                iftttlog.logdata('speech_recog.py',"Waiting for voice input....") #log the data
