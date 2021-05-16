@@ -22,7 +22,7 @@ import iftttlog
 
 #--------------------------------------------------Connection check------------------------------------------------------------
 #-------------------
-WAIT_PERIOD = 5 #Wait time between each failed internet connection check
+WAIT_PERIOD = 5 #If the ping failed, time to wait before the next ping check is done (time in seconds)
 PING_URL = 'http://google.com'
 #-------------------
 
