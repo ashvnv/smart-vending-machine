@@ -13,9 +13,9 @@ import os
 
 #-----------------iftttlog.py file path--------------------
 #log the data in google sheet
-my_dir = os.path.expanduser('~/')
+usr_dir = '/home/' + os.getlogin()
 import sys
-sys.path.append(my_dir + '/smart-vending-machine')
+sys.path.append(usr_dir + '/smart-vending-machine')
 import iftttlog
 #----------------------------------------------------------
 
@@ -63,7 +63,7 @@ iftttlog.logdata('start.py', str(tempstr)) #log the data
 #-----------------------------------------------call main.py---------------------------------------------------------------------
 
 # main.py path
-MAIN_PATH = "~/smart-vending-machine/Raspberry\ Pi/piycodes/main.py"
+MAIN_PATH = usr_dir + "/smart-vending-machine/Raspberry\ Pi/piycodes/main.py"
 
 if (os.system("python3 " + MAIN_PATH) != 0):
     iftttlog.logdata('start.py','Fatal error, check logs') #log the data
