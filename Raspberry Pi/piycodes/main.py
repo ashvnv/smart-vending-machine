@@ -33,9 +33,9 @@ import tts # Text to speech script
 
 #-----------------iftttlog.py file path--------------------
 #log the data in google sheet
-my_dir = os.path.expanduser('~/')
+usr_dir = '/home/' + os.getlogin()
 import sys
-sys.path.append(my_dir + '/smart-vending-machine')
+sys.path.append(usr_dir + '/smart-vending-machine')
 import iftttlog
 #----------------------------------------------------------
 
