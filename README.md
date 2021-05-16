@@ -73,6 +73,7 @@ EVENTNAME
 #### Script execution flow: ####
 1) Check Internet connection
 - The script keeps looping in the same place until Raspberry Pi is connected to a network. Network connection is checked by pinging http://google.com
+- *WAIT_PERIOD*: If the ping failed, time to wait before the next ping check is done (time in seconds)
 
 2) Update the cloned github repository (smart-vending-machine); this script should remain inside smart-vending-machine repository, git pull does not work from other paths
 - Once a connection is established, the script then updates the local clone of this repository. This is important as Raspberry Pi can be updated remotely without any need for removing it from a model and attaching external display and keyboard. git is used to achieve this. All the local changes, temporary files are discarded using *git reset --hard* & *git clean -fd* followed by *git pull* which updates the local repository.
