@@ -44,7 +44,46 @@ Each time Switch 1 or 2 is pressed, the quantity of that product increments by 1
     * tts.py <- ***Text-To-Speech function defined***
     * speech_recog.py <- ***Speech recognition script***
 
+* config.txt <- ***IFTTT KEY and EVENT NAME***
+* iftttlog.py <- ***Log the data in google sheets using IFTTT-Webhooks***
+* start.py <- ***On startup, Raspberry Pi executes this script***
+
 ---
+### Data logging using IFTTT ###
+- IFTTT is used to log the data in Google Sheets. Logging helps in tracking the Raspberry Pi script execution and determine errors. This comes in handy when Raspberry Pi is mounted onto the vending machine as debugging becomes difficult in this case since connecting external display and keyboard everytime might not be feasible.
+- https://ifttt.com An applet is created which is connected to Webhooks and Google sheets service. A POST web requst is made with curl in linux along with a JSON data which includes the data to be logged. Read the documentation of Webhooks from here https://ifttt.com/maker_webhooks
+> logdata()
+- Function accepts two string paramenters, \<filename\> and \<log\>, both string. Uses curl to make a POST request to webhooks and triggers the event. Function reads the config.txt file to get the IFTTT key and event name. 
+- config.txt file path can be changed from here inside iftttlog.py
+> configfilepath = os.path.expanduser('~/') + '/Desktop/config.txt'
+- Syntax of file:<br>
+KEY<br>
+EVENTNAME
+ - Sample config.txt is added in the same directory
+ - Function prints 0, indicating that the data was logged successfully
+ - Also prints the log serially using *print*
+
+#### Data logging example ###
+> In google sheet
+![log](https://raw.githubusercontent.com/ashvnv/smart-vending-machine/main/temp/googlesheet.png)
+
+---
+
+### start.py (Raspberry Pi startup script) ###
+- When Raspberry Pi boots up, this script is called automatically by adding the path to the starup programs. start.py executes some very important commands which hels in execution of Raspberry Pi
+#### Script execution flow: ####
+1) Check Internet connection
+- The script keeps looping in the same place until Raspberry Pi is connected to a nerwork. Network connection is checked by pinging http://google.com
+
+2) Update the cloned github repository (smart-vending-machine); this script should remain inside smart-vending-machine repository, git pull doesnot work from other paths
+- Once a connection is established, the script then updates the local clone of this repository. This is important as Raspberry Pi can be updated remotely without any need for removing it from a model and attaching external diplay and keyboard. git is used to achieve this. All the local changes, temporary files are discarded using *git reset --hard* & *git clean -fd* followed by *git pull* which updates the local repository.
+
+3) Call the main.py script <- restart raspberry pi if error encountered (commented)
+- After updating the local repository, the script finally calls the main.py inside the Raspberry Pi > piycodes folder. Path of the file can be adjusted by setting the *MAIN_PATH = "~/smart-vending-machine/Raspberry\ Pi/piycodes/main.py"* in start.py script. 
+
+#### ABSOLUTE FILE PATHS ARE USED. IF THE FILES LOCATION IS CHANGED, OTHER SCRIPTS MAY NOT BE ABLE TO CALL THE NECESSARY Python SCRIPTS. IT IS RECOMMENDED TO UDATE THE PATH INSIDE THE PROGRAMS IF THE FILE LOCATION IS CHANGED. ####
+#### THIS REPOSITORY IS INTENDED TO BE CLONED IN THE HOME DIRECTORY (~) AS SCRIPTS PATH IS SET RELATIVE TO HOME DRECTORY. IF LOCATION IS CHANGES, WITHOUT UPDATING THE PATH INSIDE THE SCRIPTS, THE PROGRAM MAY RETURN AN ERROR ####
+> In case of an error, start.py can reboot the system using *os.system("reboot")*, but this is commented as of now
 
 ### Arduino and Raspberry Pi integration ###
 Arduino UNO busy flag: A5 pin
