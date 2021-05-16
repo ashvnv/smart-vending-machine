@@ -33,7 +33,7 @@ import tts # Text to speech script
 
 #-----------------iftttlog.py file path--------------------
 #log the data in google sheet
-usr_dir = '/home/' + os.getlogin()
+usr_dir = '/home/' + 'pi'
 import sys
 sys.path.append(usr_dir + '/smart-vending-machine')
 import iftttlog
