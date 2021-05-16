@@ -5,7 +5,7 @@
 
 #----------------------------
 #function <- logdata() ; accepts two string paramenters, <filename> and <log>. Uses curl to make a POST request to webhooks and triggers the event. Function reads the config.txt file to get the
-#                        IFTTT key and event name. config.txt should be in the same directory. syntax of file:
+#                        IFTTT key and event name. Modify the config.txt file path from below. syntax of file:
                                                                                             #  <KEY>
                                                                                             #  <EVENTNAME>
 #                        Refer https://ifttt.com/maker_webhooks documentation
