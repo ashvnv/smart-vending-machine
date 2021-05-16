@@ -81,7 +81,7 @@ EVENTNAME
 - After updating the local repository, the script finally calls the main.py inside the Raspberry Pi > piycodes folder. Path of the file can be adjusted by setting the *MAIN_PATH = "~/smart-vending-machine/Raspberry\ Pi/piycodes/main.py"* in start.py script. 
 
 #### ABSOLUTE FILE PATHS ARE USED. IF THE FILES LOCATION IS CHANGED, OTHER SCRIPTS MAY NOT BE ABLE TO CALL THE NECESSARY Python SCRIPTS. IT IS RECOMMENDED TO UDATE THE PATH INSIDE THE PROGRAMS IF THE FILE LOCATION IS CHANGED. ####
-#### THIS REPOSITORY IS INTENDED TO BE CLONED IN THE HOME DIRECTORY (~) AS SCRIPTS PATH IS SET RELATIVE TO HOME DRECTORY. IF LOCATION IS CHANGES, WITHOUT UPDATING THE PATH INSIDE THE SCRIPTS, THE PROGRAM MAY RETURN AN ERROR ####
+#### THIS REPOSITORY IS INTENDED TO BE CLONED IN THE HOME DIRECTORY (~) AS SCRIPTS PATH IS SET RELATIVE TO HOME DRECTORY. IF LOCATION IS CHANGED, WITHOUT UPDATING THE PATH INSIDE THE SCRIPTS, THE PROGRAM MAY RETURN AN ERROR ####
 > In case of an error, start.py can reboot the system using *os.system("reboot")*, but this is commented as of now
 
 ### Arduino and Raspberry Pi integration ###
