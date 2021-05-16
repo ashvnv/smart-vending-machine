@@ -64,9 +64,8 @@ EVENTNAME
  - Also prints the log serially using *print*
 
 #### Data logging example ###
-> In google sheet
 ![log](https://raw.githubusercontent.com/ashvnv/smart-vending-machine/main/temp/googlesheet.png)
-
+> Google Sheets preview
 ---
 
 ### start.py (Raspberry Pi startup script) ###
