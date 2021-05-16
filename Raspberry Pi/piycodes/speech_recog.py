@@ -1,6 +1,6 @@
 # Smart Vending Machine [github.com/ashvnv/smart-vending-machine]
 # Raspberry Pi Voice Assistance and Face Recognition [Speech recognition script]
-# Last updated: 8 May 2021
+# Last updated: 16 May 2021
 #
 # This script recognizes voice and converts it into text using Google Speech-To-Text API
 # This script defines various functions:
