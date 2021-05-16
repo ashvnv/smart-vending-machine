@@ -21,7 +21,16 @@
 import tts # Text to speech script
 import speech_recognition as sr
 speechrecog_inst= sr.Recognizer() #create an instance of the recognizer class.
-#-------------------------------------------
+import os
+
+
+#-----------------iftttlog.py file path--------------------
+#log the data in google sheet
+my_dir = os.path.expanduser('~/')
+import sys
+sys.path.append(my_dir + '/smart-vending-machine')
+import iftttlog
+#----------------------------------------------------------
 
 
 
@@ -30,9 +39,10 @@ def ListenAudio():
     with sr.Microphone() as source:  #using device_index: default
                speechrecog_inst.adjust_for_ambient_noise(source) # suppress noice for better voice recognition {argument takes numerical values in seconds)
                
-               print("Waiting for voice input....");
+               iftttlog.logdata('speech_recog.py',"Waiting for voice input....") #log the data
                audio = speechrecog_inst.listen(source)
-               print("recorded");
+               iftttlog.logdata('speech_recog.py','recorded') #log the data
+               
     return audio
 
 
@@ -40,8 +50,7 @@ def DecodeAudio(audio):
     text = {}
     try:
         text = speechrecog_inst.recognize_google(audio)
-        #call('espeak '+text, shell=True)
-        print ("recognized: " + text);
+        iftttlog.logdata('speech_recog.py',"recognized: " + text) #log the data
         return text;
         
 
@@ -49,11 +58,13 @@ def DecodeAudio(audio):
     except sr.UnknownValueError:
         tts.TTS_call("Google Speech Recognition could not understand")
         
-        print("Google Speech Recognition could not understand")
+        iftttlog.logdata('speech_recog.py',"Google Speech Recognition could not understand") #log the data
         return 0
 
     except sr.RequestError as e:
-        print("Could not request results from Google")
+        tts.TTS_call("Could not request results from Google")
+        
+        iftttlog.logdata('speech_recog.py',"Could not request results from Google") #log the data
         return 0
 
 

@@ -31,6 +31,16 @@ import tts # Text to speech script
 
 
 
+#-----------------iftttlog.py file path--------------------
+#log the data in google sheet
+my_dir = os.path.expanduser('~/')
+import sys
+sys.path.append(my_dir + '/smart-vending-machine')
+import iftttlog
+#----------------------------------------------------------
+
+
+
 GPIO.setwarnings(False) #Suppress warnings
 GPIO.setmode(GPIO.BCM) # Use GPIO number instead of actual board pin number
 
@@ -54,11 +64,11 @@ def SwitchToggle(pin, tglcount):
     for i in range(0,tglcount):
         
         GPIO.output(pin, GPIO.LOW) #pin made low
-        print("Pin " + str(pin) + " made LOW")
+        iftttlog.logdata('main.py',"Pin " + str(pin) + " made LOW") #log the data
         time.sleep(0.2) #wait for arduino debounce delay
         
         GPIO.output(pin, GPIO.HIGH) #pin made high
-        print("Pin " + str(pin) + " made HIGH")
+        iftttlog.logdata('main.py',"Pin " + str(pin) + " made HIGH") #log the data
         time.sleep(0.2) #wait for arduino debounce delay
 
 
@@ -111,12 +121,12 @@ while(1):
         if (prod1_name != "null"):
             msg = str(prod1_count) + " " + prod1_name
             tts.TTS_call(msg)
-            print(msg)
+            iftttlog.logdata('main.py',msg) #log the data
             
         if (prod2_name != "null"):
             msg = str(prod2_count) + " " + prod2_name
             tts.TTS_call(msg)
-            print(msg)
+            iftttlog.logdata('main.py',msg) #log the data
     #--------------------------------------------------------------------------------------------------------------
             
 
@@ -142,14 +152,14 @@ while(1):
             
             #-------------------------------------Arduino switch toggle------------------------------------------------
                 if (prod1_name != "null"):
-                    print("Processing Product 1, Count: " + str(prod1_count))
+                    iftttlog.logdata('main.py',"Processing Product 1, Count: " + str(prod1_count)) #log the data
                     SwitchToggle(PROD1_BTN, prod1_count) #Toggle arduino product 1 pin
             
                 if (prod2_name != "null"):
-                    print("Processing Product 2, Count: " + str(prod2_count))
+                    iftttlog.logdata('main.py',"Processing Product 2, Count: " + str(prod2_count)) #log the data
                     SwitchToggle(PROD2_BTN, prod2_count) #toggle arduino product 2 pin
                     
-                print("Confirm btn")
+                iftttlog.logdata('main.py',"Confirm btn") #log the data
                 SwitchToggle(CONFIRM_BTN, 1) #send confirm pulse to arduino
             #-----------------------------------------------------------------------------------------------------------
 
