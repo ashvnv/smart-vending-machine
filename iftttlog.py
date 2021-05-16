@@ -18,7 +18,7 @@
 import os
 
 #---------------------config file path------------------------------------------
-usr_dir = '/home/' + os.getlogin()
+usr_dir = '/home/' + 'pi'
 configfilepath = usr_dir + '/Desktop/config.txt'
 #-------------------------------------------------------------------------------
 
