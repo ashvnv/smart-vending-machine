@@ -18,7 +18,8 @@
 import os
 
 #---------------------config file path------------------------------------------
-configfilepath = os.path.expanduser('~/') + '/Desktop/config.txt'
+usr_dir = '/home/' + os.getlogin()
+configfilepath = usr_dir + '/Desktop/config.txt'
 #-------------------------------------------------------------------------------
 
 
