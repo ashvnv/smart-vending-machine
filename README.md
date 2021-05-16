@@ -64,7 +64,7 @@ EVENTNAME
  - Also prints the log serially using *print*
 
 #### Data logging example ###
-![log](https://raw.githubusercontent.com/ashvnv/smart-vending-machine/main/temp/googlesheets.png)
+![log](https://raw.githubusercontent.com/ashvnv/smart-vending-machine/main/temp/gsheets.png)
 > Google Sheets preview
 ---
 
