@@ -131,7 +131,7 @@ void loop() {
               
               Serial.println("-------------"); //serial monitor bifurcation
               Serial.print("IR pulse received.... "); //###
-              delay(100); //100ms software debounce
+              delay(10); //10ms software debounce
               if ((digitalRead(irsens)) == HIGH) {Serial.println("debounce error");/* ### */    goto bounce_err;} //switch bounce, repeat check
               Serial.println("no debounce error");//###
               
@@ -172,7 +172,7 @@ void loop() {
               
               Serial.println("-------------"); //serial monitor bifurcation
               Serial.print("IR pulse received.... "); //###
-              delay(100); //100ms software debounce
+              delay(10); //10ms software debounce
               if ((digitalRead(irsens)) == HIGH) {Serial.println("debounce error");/* ### */   goto bounce_err2;} //switch bounce, repeat check
               Serial.println("no debounce error");//###
 
