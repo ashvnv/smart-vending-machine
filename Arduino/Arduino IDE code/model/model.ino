@@ -42,8 +42,8 @@ LiquidCrystal lcd(7, 8, 9, 10, 11, 12); //RS, E, D4, D5, D6, D7
 
 //=====================================
 //max 13 characters ["name" + ":" + xx] where xx is the product count set by the program
-const String product1name = "Toblerone";
-const String product2name = "FerreroRocher";
+const String product1name = "Orbit";
+const String product2name = "Kit Kat";
 //=====================================
 
 const byte pwm = 255; //pwm value for motor 1 and motor 2

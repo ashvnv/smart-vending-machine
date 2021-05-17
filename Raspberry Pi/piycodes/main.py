@@ -96,7 +96,7 @@ while(1):
 
     #-------------------------------------------Message decoder-----------------------------------------------------
         
-    prod1_name = srpy.NameFind(recognized_text, ["Toblerone","toblerone"]) # also send a list of words to compare with recognized text
+    prod1_name = srpy.NameFind(recognized_text, ["Orbit","orbit"]) # also send a list of words to compare with recognized text
     if (prod1_name != "null"): # skip count check is product 1 not found
         prod1_count = srpy.CountFind(recognized_text)
     else:
