@@ -71,11 +71,10 @@ Somehow pulseaudio works better in raspbian while using espeak. To know more abo
 * GPIO_PIN 22 (Board pin 15) ___Product 2 signal to Arduino___
 ---
 
-### I went with modular coding approach here. There are 4 python scripts:
+### I went with modular coding approach here. There are 3 python scripts:
 * main.py
 * tts.py
 * speech_recog,py
-* face_recog.py <- yet to implement
 
 This approach makes debugging and modifying the code easier.
 
@@ -83,6 +82,5 @@ This approach makes debugging and modifying the code easier.
 * main.py <- As the name suggest, this is the main script which is run in raspberry pi.
 * tts.py <- For executing espeak on terminal. Script calling tts.py defined function sends a string argument and this string argument is passed on to the terminal along with the predefined espeak configurations (like speech rate, volume, voice etc which can be edited in this script file).
 * speech_recog.py <- Here the voice is recorded and voice to speech recognition is done.
-* face_recog.py <- Yet to implement. Face recognition code resides. Returns the recognized person's identity.
 
 ### For more detailed information about these script files, refer the Readme inside ___piycodes___ folder
