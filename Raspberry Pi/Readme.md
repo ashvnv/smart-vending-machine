@@ -1,8 +1,6 @@
-#### Face recognition is not added yet
-
 #### Code tested on Raspberry Pi 2 B 1GB RAM
 
-##### ___What works for now___:
+##### ___Which features works as of now___:
 * Script can convert voice message to text using Google Speech Recognition
 * Script can recognize 2 products _names_ and their respective _counts_ (eg. saying "I want 2 Toblerones and 3 KitKats", the script knows that the quantity of Toblerone is 2 and quantity of KitKat is 3). As long as the _count_ of the product preceeds the _product name_ the script works
 * Script also works when single product order is given (eg. "I want 1 KitKat", this voice command also works)
