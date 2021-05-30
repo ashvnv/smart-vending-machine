@@ -54,7 +54,7 @@ Each time Switch 1 or 2 is pressed, the quantity of that product increments by 1
 > logdata()
 - Function accepts two string parameters, \<filename\> and \<log\>, both strings. Uses curl to make a POST request to webhooks and triggers the event. Function reads the config.txt file to get the IFTTT key and event name. 
 - config.txt file path can be changed from here inside iftttlog.py
-> configfilepath = os.path.expanduser('~/') + '/Desktop/config.txt'
+> usr_dir = '/home/' + 'pi'<br>configfilepath = usr_dir + '/Desktop/config.txt'
 - Syntax of file:<br>
 KEY<br>
 EVENTNAME
