@@ -1,11 +1,10 @@
-# Smart Vending Machine [Under development]
->Cautious! This project is still under development. Directories and files of this repo may change constantly.
+# Smart Vending Machine
 ### Boards used:
 * Raspberry Pi for voice assistance and face recognition
 * Arduino UNO for managing vending machine control functions required to move the product to the *product collect window* of the machine
 
 ### Preview
-- Raspberry Pi provides voice assistance, so the order can be made completely using voice. Face recognition helps in providing personalized voice assistance. The assistant will suggest orders to the person based on their order history.
+- Raspberry Pi provides voice assistance, so the order can be made completely using voice.
 - After confirming the order, Raspberry Pi sends the information to Arduino UNO. Arduino executes it's predefined functions which moves the selected products to the product collection window of the vending machine.
 
 ### Block Diagram
