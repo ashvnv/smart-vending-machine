@@ -1,5 +1,5 @@
 # Smart Vending Machine [github.com/ashvnv/smart-vending-machine]
-# Raspberry Pi Voice Assistance and Face Recognition [Main script]
+# Raspberry Pi Voice Assistance [Main script]
 # Last updated: 16 May 2021
 #
 # Prerequisite packages for speech recognition (for debian based distros):
