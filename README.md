@@ -1,5 +1,5 @@
 # Smart Vending Machine
-[![BD](https://github.com/ashvnv/smart-vending-machine/blob/main/temp/yt_img.jpg)](https://youtu.be/4K21wLQsqwA)
+[![YouTube thumbnail](https://github.com/ashvnv/smart-vending-machine/blob/main/temp/yt_img.png)](https://youtu.be/4K21wLQsqwA)
 > Watch the working preview on YouTube 👉 [click here](https://youtu.be/4K21wLQsqwA)
 
 ### Boards used:
