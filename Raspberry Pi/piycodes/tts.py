@@ -1,5 +1,5 @@
 # Smart Vending Machine [github.com/ashvnv/smart-vending-machine]
-# Raspberry Pi Voice Assistance and Face Recognition [TTS call script]
+# Raspberry Pi Voice Assistance [TTS call script]
 # Last updated: 8 May 2021
 #
 # This script calls the Text-To-Speech using Terminal. Currently configured to use espeak
