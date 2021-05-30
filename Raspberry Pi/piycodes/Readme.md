@@ -1,8 +1,7 @@
 ## main.py
 
 #### Flow of main section:
-* Execute face recognition script (face_recog.py)
-* Once face recognition script returns the recognized person's details, welcome message is executed by calling _tts.py_ 
+* Execute welcome message by calling _tts.py_ 
 * Execute speech_recog.py (_records the user's voice commands and returns the audio file_ and then _audio file is converted to text using google voice api function_) for getting voice to text message
 * decodes the received text message to get product 1 and 2 counts
 * takes confirmation message from the user for confirming the order
