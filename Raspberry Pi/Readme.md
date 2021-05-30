@@ -13,8 +13,6 @@
 ##### ___What improvements can be made:___
 * Regex can be used to improve decoding the product _name_ and _count_ from the text obtained after conversion of voice using speech recognition
 * Text to speech synthesis can be improved using MBROLA
-##### ___Yet to implement:___
-* Calling Face recognition Python script before giving the greeting voice message
 
 ---
 #### engines used:
