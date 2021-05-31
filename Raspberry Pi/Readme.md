@@ -1,8 +1,6 @@
-#### Face recognition is not added yet
-
 #### Code tested on Raspberry Pi 2 B 1GB RAM
 
-##### ___What works for now___:
+##### ___Which features works as of now___:
 * Script can convert voice message to text using Google Speech Recognition
 * Script can recognize 2 products _names_ and their respective _counts_ (eg. saying "I want 2 Toblerones and 3 KitKats", the script knows that the quantity of Toblerone is 2 and quantity of KitKat is 3). As long as the _count_ of the product preceeds the _product name_ the script works
 * Script also works when single product order is given (eg. "I want 1 KitKat", this voice command also works)
@@ -15,8 +13,6 @@
 ##### ___What improvements can be made:___
 * Regex can be used to improve decoding the product _name_ and _count_ from the text obtained after conversion of voice using speech recognition
 * Text to speech synthesis can be improved using MBROLA
-##### ___Yet to implement:___
-* Calling Face recognition Python script before giving the greeting voice message
 
 ---
 #### engines used:
@@ -73,11 +69,10 @@ Somehow pulseaudio works better in raspbian while using espeak. To know more abo
 * GPIO_PIN 22 (Board pin 15) ___Product 2 signal to Arduino___
 ---
 
-### I went with modular coding approach here. There are 4 python scripts:
+### I went with modular coding approach here. There are 3 python scripts:
 * main.py
 * tts.py
 * speech_recog,py
-* face_recog.py <- yet to implement
 
 This approach makes debugging and modifying the code easier.
 
@@ -85,6 +80,5 @@ This approach makes debugging and modifying the code easier.
 * main.py <- As the name suggest, this is the main script which is run in raspberry pi.
 * tts.py <- For executing espeak on terminal. Script calling tts.py defined function sends a string argument and this string argument is passed on to the terminal along with the predefined espeak configurations (like speech rate, volume, voice etc which can be edited in this script file).
 * speech_recog.py <- Here the voice is recorded and voice to speech recognition is done.
-* face_recog.py <- Yet to implement. Face recognition code resides. Returns the recognized person's identity.
 
 ### For more detailed information about these script files, refer the Readme inside ___piycodes___ folder

@@ -1,11 +1,13 @@
-# Smart Vending Machine [Under development]
->Cautious! This project is still under development. Directories and files of this repo may change constantly.
+# Smart Vending Machine
+[![YouTube thumbnail](https://github.com/ashvnv/smart-vending-machine/blob/main/temp/yt_img.png)](https://youtu.be/4K21wLQsqwA)
+> Watch the working preview on YouTube 👉 [click here](https://youtu.be/4K21wLQsqwA)
+
 ### Boards used:
-* Raspberry Pi for voice assistance and face recognition
+* Raspberry Pi for voice assistance
 * Arduino UNO for managing vending machine control functions required to move the product to the *product collect window* of the machine
 
 ### Preview
-- Raspberry Pi provides voice assistance, so the order can be made completely using voice. Face recognition helps in providing personalized voice assistance. The assistant will suggest orders to the person based on their order history.
+- Raspberry Pi provides voice assistance, so the order can be made completely using voice.
 - After confirming the order, Raspberry Pi sends the information to Arduino UNO. Arduino executes it's predefined functions which moves the selected products to the product collection window of the vending machine.
 
 ### Block Diagram
@@ -55,7 +57,7 @@ Each time Switch 1 or 2 is pressed, the quantity of that product increments by 1
 > logdata()
 - Function accepts two string parameters, \<filename\> and \<log\>, both strings. Uses curl to make a POST request to webhooks and triggers the event. Function reads the config.txt file to get the IFTTT key and event name. 
 - config.txt file path can be changed from here inside iftttlog.py
-> configfilepath = os.path.expanduser('~/') + '/Desktop/config.txt'
+> usr_dir = '/home/' + 'pi'<br>configfilepath = usr_dir + '/Desktop/config.txt'
 - Syntax of file:<br>
 KEY<br>
 EVENTNAME
@@ -82,7 +84,7 @@ EVENTNAME
 - After updating the local repository, the script finally calls the main.py inside the Raspberry Pi > piycodes folder. Path of the file can be adjusted by setting the *MAIN_PATH = "~/smart-vending-machine/Raspberry\ Pi/piycodes/main.py"* in start.py script. 
 
 #### ABSOLUTE FILE PATHS ARE USED. IF THE FILES LOCATION IS CHANGED, OTHER SCRIPTS MAY NOT BE ABLE TO CALL THE NECESSARY Python SCRIPTS. IT IS RECOMMENDED TO UPDATE THE PATH INSIDE THE PROGRAMS IF THE FILE LOCATION IS CHANGED. ####
-#### THIS REPOSITORY IS INTENDED TO BE CLONED IN THE HOME DIRECTORY (~) AS SCRIPTS PATH IS SET RELATIVE TO HOME DIRECTORY. IF LOCATION IS CHANGED, WITHOUT UPDATING THE PATH INSIDE THE SCRIPTS, THE PROGRAM MAY RETURN AN ERROR ####
+#### THIS REPOSITORY IS INTENDED TO BE CLONED IN THE HOME DIRECTORY (~) [WITH USERDIRECTORY NAME SET AS <*pi*>] AS SCRIPTS PATH IS SET RELATIVE TO HOME DIRECTORY. IF LOCATION IS CHANGED, WITHOUT UPDATING THE PATH INSIDE THE SCRIPTS, THE PROGRAM MAY RETURN AN ERROR ####
 > In case of an error, start.py can reboot the system using *os.system("reboot")*, but this is commented as of now
 
 ### Arduino and Raspberry Pi integration ###

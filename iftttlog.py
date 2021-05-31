@@ -1,5 +1,5 @@
 # Smart Vending Machine [github.com/ashvnv/smart-vending-machine]
-# Raspberry Pi Voice Assistance and Face Recognition [IFTTT webhooks-googlesheets logging]
+# Raspberry Pi Voice Assistance [IFTTT webhooks-googlesheets logging]
 # Last updated: 16 May 2021
 #
 

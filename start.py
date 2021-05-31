@@ -1,5 +1,5 @@
 # Smart Vending Machine [github.com/ashvnv/smart-vending-machine]
-# Raspberry Pi Voice Assistance and Face Recognition [start script]
+# Raspberry Pi Voice Assistance [start script]
 # Last updated: 16 May 2021
 #
 # This is the python script which Raspberry Pi runs on startup.
